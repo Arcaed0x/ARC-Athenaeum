@@ -1,5 +1,5 @@
 # ARC-Athenaeum
-A library filled with elegant tools topped with an elegant name.
+A library filled with elegant functional tools topped with an elegant name.
 
 In this library I try to make functional features such as filter and map available for modern C++ programmers to use.
 This is a very interesting project and I hope to further it on.
