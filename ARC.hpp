@@ -10,19 +10,23 @@
 
 namespace ARC
 {
-  template <typename T>
   class Functor
   {
-    using Predicate = std::function<bool (T)>;
-    using Function = std::function<T (T)>;
     public:
-      Functor(std::vector<T>& d):data{std::move(d)}{};
-      Functor& filter(Predicate p){ data.erase(std::remove_if(data.begin(), data.end(), p), data.end()); return *this;}
-      Functor& map(Function f) { std::transform(data.begin(), data.end(), data.begin(), f); return *this;}
-      std::vector<T>& getData(){return data;}
+      template <typename T>
+      Functor(T& d):data{std::move(d)}{};
+
+      template <typename P>   
+      Functor& filter(P p){ data.erase(std::remove_if(data.begin(), data.end(), p), data.end()); return *this;}
+      
+      template <typename FN>
+      Functor& map(FN f) { std::transform(data.begin(), data.end(), data.begin(), f); return *this;}
+      
+      template <typename DT>
+      DT& getData(){return std::move(data);}
 
     private:
-      std::vector<T> data;
+      auto data;
   };
 
   template <typename T,typename TX, typename V>
