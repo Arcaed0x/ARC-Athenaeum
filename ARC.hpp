@@ -8,6 +8,10 @@
 
 #pragma once
 
+#include <algorithm>
+#include <vector>
+#include <functional>
+
 namespace ARC
 {
   class Functor
@@ -16,17 +20,17 @@ namespace ARC
       template <typename T>
       Functor(T& d):data{std::move(d)}{};
 
-      template <typename P>   
+      template <typename P>
       Functor& filter(P p){ data.erase(std::remove_if(data.begin(), data.end(), p), data.end()); return *this;}
-      
+
       template <typename FN>
       Functor& map(FN f) { std::transform(data.begin(), data.end(), data.begin(), f); return *this;}
-      
+
       template <typename DT>
-      DT& getData(){return std::move(data);}
+      T& getData(){return std::move(data);}
 
     private:
-      auto data;
+      T data;
   };
 
   template <typename T,typename TX, typename V>

@@ -31,7 +31,7 @@ int main()
 
   //Creates a Functor (something that can be mapped over) by passing the constructor the type of objects contained in
   //the vector we are about to pass it. Then we pass a vector into the constructor.
-  ARC::Functor<int> f{d};
+  ARC::Functor f{d};
 
   //With our functor we can run a filter on it, all we have to do is pass it a function that takes a paramter of
   //the type that is the same of that passed to the functor template arguments; then the function must return a bool.
