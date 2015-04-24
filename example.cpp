@@ -7,7 +7,6 @@ int mult5(int x) {return x*5;}
 //Create Two functions
 
 using IntFunctions = std::function<int (int)>;
-using Ints = std::vector<int>;
 //C++'s version of typedef used here just to make our types more readable
 
 int main()
