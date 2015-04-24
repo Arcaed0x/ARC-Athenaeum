@@ -1,6 +1,5 @@
 #include <iostream>
 #include "ARC.hpp"
-#include <list>
 
 bool greaterThan5(int x){ return x > 5; }
 int mult5(int x) {return x*5;}
@@ -15,14 +14,13 @@ int main()
   std::vector<int> d {5,7,63,41, 4, 23, 45};
   std::vector<IntFunctions> fs{[](int x){return x + 5;}, [](int x){ return x + 20;}};
 
-  /*Create a delegate passing it three types
-    First is the type passed to all functions.
-    Second is the type returned by the last function provided to the delegate.
-    Lastly is the type which will hold the intermidate values while function composition is occuring.
+  /*Create a Functi passing it two types
+    First is the type to be passed to the first function in the Functi.
+    Second is the type returned by the last function provided to the Functi.
     the '+=' operator is used to add more functions to the composite function.
   */
 
-  ARC::Functi<int , int, int> cf;
+  ARC::Functi<int , int> cf;
   cf += mult5;
 
   //The composite function is then called and the paramter is given for it to act on
