@@ -1,8 +1,8 @@
 #include <iostream>
 #include "ARC.hpp"
 
-bool greaterThan5(int x){ return x > 5; }
-int mult5(int x) {return x*5;}
+bool greaterThan5(int x) noexcept { return x > 5; }
+int mult5(int x) noexcept {return x*5;}
 //Create Two functions
 
 using IntFunctions = std::function<int (int)>;
@@ -24,6 +24,7 @@ int main()
   cf += mult5;
   //or..
   cf << mult5 << mult5;
+  //Here I have used the chaining operator to allow me to define a fully fledged Functi in one line.
 
   //The composite function is then called and the paramter is given for it to act on
   //NOTE this type must be the same as the first type provided to the delegate!
