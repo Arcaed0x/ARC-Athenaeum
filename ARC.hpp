@@ -42,9 +42,10 @@ namespace ARC
       Functi():funcs{[](T x){return x;}}{};
       Functi(VecOfFunctions fs):funcs{std::move(fs)}{};
 
-      void operator+=(std::function<TX (T)> f){
-        funcs.push_back(f);
-      }
+      void operator+=(std::function<TX (T)> f) noexcept { funcs.push_back(f); }
+      
+      template <typename FN>
+      Functi& operator<<(FN f) noexcept { funcs.push_back(f); return *this; }
 
       template <typename V>
       TX operator()(V a){
@@ -55,9 +56,7 @@ namespace ARC
         return val;
       }
 
-
     private:
       VecOfFunctions funcs;
-      //V val;
   };
 }

@@ -22,6 +22,8 @@ int main()
 
   ARC::Functi<int , int> cf;
   cf += mult5;
+  //or..
+  cf << mult5 << mult5;
 
   //The composite function is then called and the paramter is given for it to act on
   //NOTE this type must be the same as the first type provided to the delegate!
