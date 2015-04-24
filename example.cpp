@@ -1,11 +1,13 @@
 #include <iostream>
 #include "ARC.hpp"
+#include <list>
 
 bool greaterThan5(int x){ return x > 5; }
 int mult5(int x) {return x*5;}
 //Create Two functions
 
 using IntFunctions = std::function<int (int)>;
+using Ints = std::vector<int>;
 //C++'s version of typedef used here just to make our types more readable
 
 int main()
@@ -31,7 +33,7 @@ int main()
 
   //Creates a Functor (something that can be mapped over) by passing the constructor the type of objects contained in
   //the vector we are about to pass it. Then we pass a vector into the constructor.
-  ARC::Functor f{d};
+  ARC::Functor<int> f{d};
 
   //With our functor we can run a filter on it, all we have to do is pass it a function that takes a paramter of
   //the type that is the same of that passed to the functor template arguments; then the function must return a bool.
@@ -52,5 +54,5 @@ int main()
   {
     std::cout << "Thing: " << x << std::endl;
   }
-  std::cin.get();
+  //std::cin.get();
 }

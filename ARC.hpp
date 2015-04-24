@@ -14,6 +14,8 @@
 
 namespace ARC
 {
+
+  template <typename DT>
   class Functor
   {
     public:
@@ -26,11 +28,10 @@ namespace ARC
       template <typename FN>
       Functor& map(FN f) { std::transform(data.begin(), data.end(), data.begin(), f); return *this;}
 
-      template <typename DT>
-      T& getData(){return std::move(data);}
+      std::vector<DT> getData(){return std::move(data);}
 
     private:
-      T data;
+      std::vector<DT> data;
   };
 
   template <typename T,typename TX, typename V>
