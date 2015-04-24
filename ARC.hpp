@@ -35,12 +35,12 @@ namespace ARC
   };
 
   template <typename T,typename TX, typename V>
-  class Delegate
+  class Functi
   {
     using VecOfFunctions = std::vector<std::function<TX (T)>>;
     public:
-      Delegate():val{0},funcs{[](T x){return x;}}{};
-      Delegate(VecOfFunctions fs):funcs{std::move(fs)},val{0}{};
+      Functi():val{0},funcs{[](T x){return x;}}{};
+      Functi(VecOfFunctions fs):funcs{std::move(fs)},val{0}{};
 
       void operator+=(std::function<TX (T)> f){
         funcs.push_back(f);

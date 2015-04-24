@@ -23,7 +23,7 @@ int main()
     the '+=' operator is used to add more functions to the composite function.
   */
 
-  ARC::Delegate<int , int, int> cf;
+  ARC::Functi<int , int, int> cf;
   cf += mult5;
 
   //The composite function is then called and the paramter is given for it to act on
