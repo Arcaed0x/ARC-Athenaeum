@@ -22,4 +22,4 @@ or
 
 NOTE : You must be using the C++11 compiler flag [This may be subject to change soon]
 
-Version : 0.1.1 [Alpha]
+Version : 0.1.5 [Alpha]
